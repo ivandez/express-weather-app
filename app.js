@@ -5,6 +5,8 @@ const logger = require('morgan')
 
 const app = express()
 
+const weatherRouter = require('./routes/weather')
+
 // APP SETTINGS
 const PORT = 3000
 const publicPath = path.join(__dirname, '/public')
@@ -19,6 +21,8 @@ app.set('view engine', 'html')
 app.get('/', (req, res) => {
   res.sendFile('inicio', { root: publicPath })
 })
+
+app.use('/weather', weatherRouter)
 
 app.get('*', (req, res) => {
   res.send('not found')
