@@ -20,6 +20,10 @@ app.get('/', (req, res) => {
   res.sendFile('inicio', { root: publicPath })
 })
 
+app.get('*', (req, res) => {
+  res.send('not found')
+})
+
 app.listen(PORT, () => {
   console.log(`Server up listen ${PORT} port`)
 })
