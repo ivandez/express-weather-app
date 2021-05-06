@@ -15,7 +15,14 @@ const spinner = document.getElementById('spinner')
 form.addEventListener('submit', (e) => {
   e.preventDefault()
 
+  country.textContent = ''
+
+  name.textContent = ''
+
+  temperature.textContent = ''
+
   spinner.className = 'show'
+
   fetch(`http://localhost:3000/weather/get/${userInput.value}`).then(
     (res) => {
       res.json().then((data) => {
