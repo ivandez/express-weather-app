@@ -4,13 +4,7 @@ const temperature = document.querySelector('#temperature')
 const form = document.querySelector('#weather-form')
 const userInput = document.querySelector('#userInput')
 const spinner = document.getElementById('spinner')
-
-// const showSpinner = () => {
-//   spinner.className = 'show'
-//   setTimeout(() => {
-//     spinner.className = spinner.className.replace('show', '')
-//   }, 5000)
-// }
+const countryNotFound = document.querySelector('#country_not_found')
 
 form.addEventListener('submit', (e) => {
   e.preventDefault()
@@ -23,14 +17,16 @@ form.addEventListener('submit', (e) => {
 
   spinner.className = 'show'
 
+  countryNotFound.className = spinner.className.replace('show', '')
+
   fetch(`http://localhost:3000/weather/get/${userInput.value}`).then(
     (res) => {
       res.json().then((data) => {
         spinner.className = spinner.className.replace('show', '')
-
-        if (data.error) {
+        if ('error' in data) {
           console.log('error')
-          // console.log(data.error)
+          console.log(data.error)
+          countryNotFound.className = 'show'
         } else {
           const temperatureF = (data.temperature * 9) / 5 + 32
           country.textContent = data.location
@@ -41,10 +37,3 @@ form.addEventListener('submit', (e) => {
     }
   )
 })
-
-// const showSpinner = () => {
-//   spinner.className = "show";
-//   setTimeout(() => {
-//     spinner.className = spinner.className.replace("show", "");
-//   }, 5000);
-// }

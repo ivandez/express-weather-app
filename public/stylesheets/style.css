@@ -67,3 +67,13 @@ body {
   visibility: visible;
   display: block;
 }
+
+#country_not_found{
+  visibility: hidden;
+  display: none;
+}
+
+#country_not_found.show{
+  visibility: visible;
+  display: block;
+}
