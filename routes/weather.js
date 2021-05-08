@@ -5,13 +5,7 @@ const axios = require('axios')
 
 router.get('/get/:country', (req, res, next) => {
   const COUNTRY = encodeURI(req.params.country)
-  /**
- * TODO
- * 1 manejar cuando CIUDAD no existe
- * 2 manejar cuando falla la llamada a la api
- *
- * ME QUEDE POR IMPRIMIR EL MENSAJE DE NO SE ENCONTRO EL CUIDAD
- */
+
   axios.get(`http://api.weatherstack.com/current?access_key=fbca4f6a360e658244c5ac5a7f9bda21&query=${COUNTRY}`)
 
     .then(function (response) {

@@ -35,5 +35,7 @@ form.addEventListener('submit', (e) => {
         }
       })
     }
-  )
+  ).catch(e => {
+    countryNotFound.className = 'show'
+  })
 })
