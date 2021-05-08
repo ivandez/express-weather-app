@@ -36,6 +36,8 @@ form.addEventListener('submit', (e) => {
       })
     }
   ).catch(e => {
+    spinner.className = spinner.className.replace('show', '')
+
     countryNotFound.className = 'show'
   })
 })
