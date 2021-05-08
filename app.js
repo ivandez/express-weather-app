@@ -1,3 +1,4 @@
+require('dotenv').config()
 const express = require('express')
 const path = require('path')
 const cookieParser = require('cookie-parser')
@@ -17,6 +18,9 @@ app.use(cookieParser())
 app.use(express.static(path.join(__dirname, 'public')))
 app.set('view engine', 'html')
 
+app.get('/test', (req, res) => {
+  res.send(process.env.TEST_ENV)
+})
 //  ROUTES
 app.get('/', (req, res) => {
   res.sendFile('inicio', { root: publicPath })
