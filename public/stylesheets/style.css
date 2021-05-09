@@ -1,9 +1,34 @@
 body {
-  background: url("../images/background2.jpg");
-  background-repeat: no-repeat;
-  background-attachment: fixed;
+  background: url(../images/bg3-min.jpg);
+  height: 100%;
   background-position: center;
+  background-repeat: no-repeat;
   background-size: cover;
+  background-attachment: fixed;
+}
+
+@media only screen and (min-width: 768px) {
+  /* For desktop: */
+  body {
+    background: url(../images/bg3-min.jpg);
+    background-repeat: no-repeat;
+    background-position: 50% 10%;
+    background-size: cover;
+  }
+  .app__input {
+    width: 100%;
+    padding: 15px;
+    color: #313131;
+    font-size: 20px;
+    appearance: none;
+    border: none;
+    outline: none;
+    /* background: none; */
+    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.25);
+    /* background-color: rgba(255, 255, 255, 0.5); */
+    border-radius: 0px 16px 0px 16px;
+    transition: 0.4s;
+  }  
 }
 
 .app__title {
@@ -30,9 +55,7 @@ body {
   appearance: none;
   border: none;
   outline: none;
-  /* background: none; */
   box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.25);
-  /* background-color: rgba(255, 255, 255, 0.5); */
   border-radius: 0px 16px 0px 16px;
   transition: 0.4s;
 }

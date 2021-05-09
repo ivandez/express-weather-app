@@ -18,7 +18,8 @@ form.addEventListener('submit', (e) => {
   spinner.className = 'show'
 
   countryNotFound.className = spinner.className.replace('show', '')
-
+  // `https://weather-app-express-node.herokuapp.com/weather/get/${userInput.value}`
+  // `http://localhost:3000/weather/get/${userInput.value}`
   fetch(`https://weather-app-express-node.herokuapp.com/weather/get/${userInput.value}`).then(
     (res) => {
       res.json().then((data) => {
