@@ -6,16 +6,28 @@ const userInput = document.querySelector('#userInput')
 const spinner = document.getElementById('spinner')
 const countryNotFound = document.querySelector('#country_not_found')
 
-form.addEventListener('submit', (e) => {
-  e.preventDefault()
+const showSpinner = () => {
+  spinner.classList.add('show')
+}
 
+const hideSpinner = () => {
+  spinner.classList.remove('show')
+}
+
+const resetResponse = () => {
   country.textContent = ''
 
   name.textContent = ''
 
   temperature.textContent = ''
+}
 
-  spinner.className = 'show'
+form.addEventListener('submit', (e) => {
+  e.preventDefault()
+
+  resetResponse()
+
+  showSpinner()
 
   countryNotFound.className = spinner.className.replace('show', '')
   // `https://weather-app-express-node.herokuapp.com/weather/get/${userInput.value}`
@@ -23,7 +35,7 @@ form.addEventListener('submit', (e) => {
   fetch(`https://weather-app-express-node.herokuapp.com/weather/get/${userInput.value}`).then(
     (res) => {
       res.json().then((data) => {
-        spinner.className = spinner.className.replace('show', '')
+        hideSpinner()
         if ('error' in data) {
           console.log('error')
           console.log(data.error)
@@ -37,7 +49,7 @@ form.addEventListener('submit', (e) => {
       })
     }
   ).catch(e => {
-    spinner.className = spinner.className.replace('show', '')
+    hideSpinner()
 
     countryNotFound.className = 'show'
   })
