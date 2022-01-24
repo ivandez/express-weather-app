@@ -6,7 +6,7 @@ const axios = require('axios')
 router.get('/get/:country', (req, res, next) => {
   const COUNTRY = encodeURI(req.params.country)
 
-  axios.get(`http://api.weatherstack.com/current?access_key=fbca4f6a360e658244c5ac5a7f9bda21&query=${COUNTRY}`)
+  axios.get(`http://api.weatherstack.com/current?access_key=df78b26295995c4656d8f9351594fe4e&query=${COUNTRY}`)
 
     .then(function (response) {
       // handle success
